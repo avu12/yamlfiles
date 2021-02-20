@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+   name: rustapp-ingress
+   namespace: default
+spec:
+   rules:
+   - host: rustapp.com
+     http:
+         paths:
+           - path: /
+             pathType: Prefix
+             backend:
+              service:
+                 name: rustapp
+                 port:
+                   number: 8080
