@@ -3,8 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: pv0001-claim
 spec:
-  storageClassName: ""
   volumeName: pv0001
+  storageClassName: standard
+  volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
   resources:

@@ -23,10 +23,13 @@ spec:
               name: postgres-config
         ports:
         - containerPort: 5432
-          name: postgredb
+          name: postgresdb
+        volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: pv0001-claim
   volumeClaimTemplates:
   - metadata:
-      name: task-pv-claim
+      name: pv0001-claim
     spec:
       accessModes: ["ReadWriteOnce"]
       resources:
