@@ -1,0 +1,36 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: rustapp
+  namespace: default
+  labels:
+    app: rustapp
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: /metrics
+    prometheus.io/port: "9090"
+    deployment.kubernetes.io/revision: '1'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rustapp
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: rustapp
+    spec:
+      containers:
+        - name: rustapp
+          image: avu12/rustapp
+          resources: {}
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
+          - containerPort: 9090
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
