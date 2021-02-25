@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: goapp
+  namespace: default
+  labels:
+    app: goapp
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: goapp
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: goapp
+    spec:
+      containers:
+        - name: goapp
+          image: avu12/golangapp
+          resources: {}
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler

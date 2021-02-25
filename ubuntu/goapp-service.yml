@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: goapp-service
+  labels:
+    app: gopapp
+spec:
+  ports:
+  - port: 8181
+    name: goapp
+  type: NodePort 
+  selector:
+    app: goapp
