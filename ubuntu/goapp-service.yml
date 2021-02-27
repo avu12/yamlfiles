@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: goapp-service
   labels:
-    app: gopapp
+    app: goapp
 spec:
   ports:
-  - port: 8181
+  - port: 8080
     name: goapp
-  type: NodePort 
+  type: ClusterIP 
   selector:
     app: goapp
