@@ -8,6 +8,6 @@ spec:
   ports:
   - port: 8080
     name: goapp
-  type: ClusterIP 
+  type: NodePort 
   selector:
     app: goapp
