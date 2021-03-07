@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: goapp
-          image: avu12/golangapp
+          image: avu12/golangapp:arm64v8
           resources: {}
           imagePullPolicy: Always
           ports:
