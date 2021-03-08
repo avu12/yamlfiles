@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: postgres:11.2
+        image: arm64v8/postgres:11.11
         envFrom:
           - configMapRef:
               name: postgres-config
@@ -26,10 +26,10 @@ spec:
           name: postgresdb
         volumeMounts:
             - mountPath: /var/lib/postgresql/data
-              name: pv0001-claim
+              name: pv0001
   volumeClaimTemplates:
   - metadata:
-      name: pv0001-claim
+      name: pv0001
     spec:
       accessModes: ["ReadWriteOnce"]
       resources:
