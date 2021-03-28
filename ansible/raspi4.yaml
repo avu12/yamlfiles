@@ -14,5 +14,6 @@
     docker_image:
       path: /home/ubuntu/fancy-webpage
       name: avu12/fancy-webpage:arm64v8
-      tag: latest
+      tag: arm64v8
+      force: yes
       push: yes
