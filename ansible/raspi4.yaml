@@ -10,4 +10,9 @@
       dest: /home/ubuntu/fancy-webpage
       key_file: /home/ubuntu/.ssh/id_ed25519
       accept_hostkey: yes
-  
+  - name: Build an image and push it to a private repo
+    docker_image:
+      path: /home/ubuntu/fancy-webpage
+      name: avu12/fancy-webpage:arm64v8
+      tag: latest
+      push: yes
