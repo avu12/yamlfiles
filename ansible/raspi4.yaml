@@ -1,0 +1,9 @@
+- name: test raspi connection
+  hosts: raspi4
+  remote_user: ubuntu
+  become: yes
+  
+  tasks:
+  - name: execute command
+    shell: touch example.txt
+  
