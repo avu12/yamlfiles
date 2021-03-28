@@ -4,6 +4,10 @@
   become: yes
   
   tasks:
-  - name: execute command
-    shell: touch example.txt
+  - name: git clone fancy webpage
+    ansible.builtin.git:
+      repo: git@github.com:avu12/fancy-webpage.git
+      dest: /home/ubuntu/fancy-webpage
+      key_file: /home/ubuntu/.ssh/id_ed25519
+      accept_hostkey: yes
   
