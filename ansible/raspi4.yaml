@@ -19,6 +19,10 @@
       push: yes
   - name: debugging
     shell: pwd
+    register: out
+    
+  - debug: var=out.stdout_lines
+
   - name: deploy fancywebpage deployment
     shell: 
         "microk8s kubectl apply -f ./yamlfiles/ubuntu/yaml/fancywebpage-deployment.yaml"
