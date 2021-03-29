@@ -17,6 +17,8 @@
       tag: arm64v8
       force: yes
       push: yes
+  - name: debugging
+    shell: pwd
   - name: deploy fancywebpage deployment
     shell: 
         "microk8s kubectl apply -f ./yamlfiles/ubuntu/yaml/fancywebpage-deployment.yaml"
