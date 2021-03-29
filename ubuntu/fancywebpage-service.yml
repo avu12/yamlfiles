@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fwapp-service
+  labels:
+    app: fwapp
+spec:
+  ports:
+  - port: 8080
+    name: fwapp
+  type: NodePort 
+  selector:
+    app: fwapp

@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: fwapp
+  namespace: default
+  labels:
+    app: fwapp
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fwapp
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: fwapp
+    spec:
+      containers:
+        - name: fwapp
+          image: avu12/fancy-webpage:arm64v8
+          resources: {}
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
