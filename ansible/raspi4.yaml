@@ -19,11 +19,7 @@
       push: yes
   - name: deploy fancywebpage deployment
     shell: 
-        "microk8s kubectl apply -f fancywebpage-deployment.yaml"
-    args:
-      chdir: ./yamlfiles/ubuntu/yaml/
+        "microk8s kubectl apply -f ./yamlfiles/ubuntu/yaml/fancywebpage-deployment.yaml"
   - name: deploy fancywebpage service
     shell: 
-        "microk8s kubectl apply -f fancywebpage-service.yaml"
-    args:
-      chdir: ./yamlfiles/ubuntu/yaml/
+        "microk8s kubectl apply -f ./yamlfiles/ubuntu/yaml/fancywebpage-service.yaml"
