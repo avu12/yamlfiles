@@ -8,7 +8,7 @@
     ansible.builtin.git:
       repo: git@github.com:avu12/fancy-webpage.git
       dest: /home/ubuntu/fancy-webpage
-      key_file: /home/ubuntu/.ssh/id_ed25519
+      key_file: /home/ubuntu/.ssh/id_rsa
       accept_hostkey: yes
   - name: Build an image and push it to a private repo
     docker_image:
@@ -22,7 +22,7 @@
         "microk8s kubectl delete deployment fancy-goapp"
   - name: deploy fancywebpage deployment
     shell: 
-        "microk8s kubectl apply -f ./fancy-webpage/yamlfiles/fancy-deployment.yaml"
+        "microk8s kubectl apply -f /home/ubuntu/fancy-webpage/yamlfiles/fancy-deployment.yaml"
   - name: deploy fancywebpage service
     shell: 
-        "microk8s kubectl apply -f ./fancy-webpage/yamlfiles/fancy-svc.yaml"
+        "microk8s kubectl apply -f /home/ubuntu/fancy-webpage/yamlfiles/fancy-svc.yaml"
