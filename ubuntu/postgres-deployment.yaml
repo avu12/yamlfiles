@@ -31,6 +31,7 @@ spec:
   - metadata:
       name: pv0001
     spec:
+      storageClassName: standard
       accessModes: ["ReadWriteOnce"]
       resources:
         requests:
